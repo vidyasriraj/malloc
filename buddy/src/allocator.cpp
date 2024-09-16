@@ -2,16 +2,14 @@
 #include <cmath>
 #include <cstring> 
 #include <cstdlib> 
-#include <sys/mman.h>  // For mmap and munmap
-#include <unistd.h>    // For sysconf to get page size
 
 Allocator::Allocator() {
     free_list = nullptr;
 }
 
 Allocator::~Allocator() {
-    // Destructor doesn't do anything in this case, but could be used for cleanup if necessary.
 }
+
 
 size_t Allocator::check_power_2(size_t size) {
     size_t power = 1;
@@ -77,20 +75,9 @@ void* Allocator::my_malloc(size_t size) {
     size_t block_size = check_power_2(size + sizeof(BuddyBlock));
     BuddyBlock* block = find_free_block(block_size);
 
-    // If no free block is found, request more memory using mmap
+    // If no free block is found, request more memory from the system
     if (!block) {
-        // Ensure that block size is at least a multiple of the page size
-        size_t page_size = sysconf(_SC_PAGESIZE);
-        if (block_size < page_size) {
-            block_size = page_size;
-        }
-
-        // Use mmap to allocate memory
-        block = (BuddyBlock*)mmap(nullptr, block_size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-        if (block == MAP_FAILED) {
-            return nullptr;  // mmap failed
-        }
-
+        block = (BuddyBlock*)sbrk(block_size);
         block->size = block_size;
         block->free = false;
         block->buddy = nullptr;
@@ -113,11 +100,6 @@ void Allocator::my_free(void* ptr) {
     // Try to merge the block with its buddy
     merge_with_buddy(block);
 
-    // If the block is large enough, unmap it from memory
-    size_t page_size = sysconf(_SC_PAGESIZE);
-    if (block->size >= page_size) {
-        munmap(block, block->size);  // Release memory using munmap
-    }
 }
 
 void Allocator::merge_with_buddy(BuddyBlock* block) {
@@ -145,3 +127,4 @@ void Allocator::merge_with_buddy(BuddyBlock* block) {
         add_to_free_list(block);
     }
 }
+
