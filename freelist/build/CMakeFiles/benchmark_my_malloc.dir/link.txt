@@ -1,0 +1,1 @@
+/usr/bin/g++ -g CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.o -o benchmark_my_malloc  liballocator.a /usr/lib/x86_64-linux-gnu/libbenchmark.so.1.8.3 
