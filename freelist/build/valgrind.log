@@ -1,7 +1,0 @@
-==56895== Massif, a heap profiler
-==56895== Copyright (C) 2003-2017, and GNU GPL'd, by Nicholas Nethercote
-==56895== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==56895== Command: ./benchmark_allocator
-==56895== Parent PID: 55669
-==56895== 
-==56895== 
