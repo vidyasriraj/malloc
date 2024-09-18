@@ -20,22 +20,26 @@ size_t Allocator::check_power_2(size_t size) {
 }
 
 BuddyBlock* Allocator::find_free_block(size_t size) {
-    BuddyBlock* prev = nullptr;
     BuddyBlock* curr = free_list;
 
     // Traverse the free list to find a free block of at least the requested size
     while (curr) {
         if (curr->free && curr->size >= size) {
-            if (prev) {
-                prev->next = curr->next;
+            // Remove the block from the free list
+            if (curr->prev) {
+                curr->prev->next = curr->next;
             } else {
                 free_list = curr->next;
             }
+            if (curr->next) {
+                curr->next->prev = curr->prev;
+            }
+
             curr->next = nullptr;
+            curr->prev = nullptr;
             curr->free = false;
             return curr;
         }
-        prev = curr;
         curr = curr->next;
     }
 
@@ -54,6 +58,7 @@ BuddyBlock* Allocator::split_block(BuddyBlock* block, size_t size) {
         buddy->buddy = block;
         block->buddy = buddy;
         buddy->next = nullptr;
+        buddy->prev = nullptr;
 
         add_to_free_list(buddy);  // Add the buddy block to the free list
     }
@@ -63,6 +68,10 @@ BuddyBlock* Allocator::split_block(BuddyBlock* block, size_t size) {
 
 void Allocator::add_to_free_list(BuddyBlock* block) {
     block->next = free_list;
+    block->prev = nullptr;
+    if (free_list) {
+        free_list->prev = block;
+    }
     free_list = block;
 }
 
@@ -82,6 +91,7 @@ void* Allocator::my_malloc(size_t size) {
         block->free = false;
         block->buddy = nullptr;
         block->next = nullptr;
+        block->prev = nullptr;
     } else {
         // If a larger block is found, split it to the requested size
         block = split_block(block, block_size);
@@ -99,20 +109,19 @@ void Allocator::my_free(void* ptr) {
 
     // Try to merge the block with its buddy
     merge_with_buddy(block);
-
 }
 
 void Allocator::merge_with_buddy(BuddyBlock* block) {
     BuddyBlock* buddy = block->buddy;
     if (buddy && buddy->free && buddy->size == block->size) {
         // Remove buddy from free list
-        BuddyBlock** curr = &free_list;
-        while (*curr) {
-            if (*curr == buddy) {
-                *curr = buddy->next;
-                break;
-            }
-            curr = &(*curr)->next;
+        if (buddy->prev) {
+            buddy->prev->next = buddy->next;
+        } else {
+            free_list = buddy->next;
+        }
+        if (buddy->next) {
+            buddy->next->prev = buddy->prev;
         }
 
         // Merge blocks
@@ -127,4 +136,3 @@ void Allocator::merge_with_buddy(BuddyBlock* block) {
         add_to_free_list(block);
     }
 }
-

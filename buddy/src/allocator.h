@@ -5,11 +5,13 @@
 #include <unistd.h>
 
 struct BuddyBlock {
-    size_t size;    // Size of the block (always a power of two)
-    bool free;      // True if the block is free
-    BuddyBlock* next;   // Pointer to the next free block in the list
-    BuddyBlock* buddy;  // Pointer to the buddy block
+    size_t size;
+    bool free;
+    BuddyBlock* next;
+    BuddyBlock* prev;   
+    BuddyBlock* buddy;
 };
+
 
 class Allocator {
 public:
