@@ -198,19 +198,6 @@ testing/fast:
 .PHONY : testing/fast
 
 #=============================================================================
-# Target rules for targets named benchmark_malloc
-
-# Build rule for target.
-benchmark_malloc: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 benchmark_malloc
-.PHONY : benchmark_malloc
-
-# fast build rule for target.
-benchmark_malloc/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark_malloc.dir/build.make CMakeFiles/benchmark_malloc.dir/build
-.PHONY : benchmark_malloc/fast
-
-#=============================================================================
 # Target rules for targets named benchmark_my_malloc
 
 # Build rule for target.
@@ -274,30 +261,6 @@ gtest_main: cmake_check_build_system
 gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
-
-benchmark_malloc.o: benchmark_malloc.cpp.o
-.PHONY : benchmark_malloc.o
-
-# target to build an object file
-benchmark_malloc.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark_malloc.dir/build.make CMakeFiles/benchmark_malloc.dir/benchmark_malloc.cpp.o
-.PHONY : benchmark_malloc.cpp.o
-
-benchmark_malloc.i: benchmark_malloc.cpp.i
-.PHONY : benchmark_malloc.i
-
-# target to preprocess a source file
-benchmark_malloc.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark_malloc.dir/build.make CMakeFiles/benchmark_malloc.dir/benchmark_malloc.cpp.i
-.PHONY : benchmark_malloc.cpp.i
-
-benchmark_malloc.s: benchmark_malloc.cpp.s
-.PHONY : benchmark_malloc.s
-
-# target to generate assembly for a file
-benchmark_malloc.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark_malloc.dir/build.make CMakeFiles/benchmark_malloc.dir/benchmark_malloc.cpp.s
-.PHONY : benchmark_malloc.cpp.s
 
 benchmark_my_malloc.o: benchmark_my_malloc.cpp.o
 .PHONY : benchmark_my_malloc.o
@@ -388,16 +351,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... allocator"
-	@echo "... benchmark_malloc"
 	@echo "... benchmark_my_malloc"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
 	@echo "... testing"
-	@echo "... benchmark_malloc.o"
-	@echo "... benchmark_malloc.i"
-	@echo "... benchmark_malloc.s"
 	@echo "... benchmark_my_malloc.o"
 	@echo "... benchmark_my_malloc.i"
 	@echo "... benchmark_my_malloc.s"

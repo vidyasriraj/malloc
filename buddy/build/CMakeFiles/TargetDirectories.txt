@@ -1,6 +1,5 @@
 /home/killi-pt7716/Desktop/malloc/buddy/build/CMakeFiles/allocator.dir
 /home/killi-pt7716/Desktop/malloc/buddy/build/CMakeFiles/testing.dir
-/home/killi-pt7716/Desktop/malloc/buddy/build/CMakeFiles/benchmark_malloc.dir
 /home/killi-pt7716/Desktop/malloc/buddy/build/CMakeFiles/benchmark_my_malloc.dir
 /home/killi-pt7716/Desktop/malloc/buddy/build/CMakeFiles/test.dir
 /home/killi-pt7716/Desktop/malloc/buddy/build/CMakeFiles/edit_cache.dir

@@ -42,9 +42,9 @@ target_link_libraries(
 include(GoogleTest)
 add_test(AllTests testing)
 # Define the benchmark executable and link with allocator, benchmark, and Threads
-add_executable(benchmark_malloc benchmark_malloc.cpp)
+
 add_executable(benchmark_my_malloc benchmark_my_malloc.cpp)
-target_link_libraries(benchmark_malloc PRIVATE allocator benchmark::benchmark Threads::Threads)
+
 target_link_libraries(benchmark_my_malloc PRIVATE allocator benchmark::benchmark Threads::Threads)
 
 
