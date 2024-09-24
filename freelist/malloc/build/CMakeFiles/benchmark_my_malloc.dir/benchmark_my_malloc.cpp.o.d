@@ -1,7 +1,7 @@
 CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.o: \
- /home/killi-pt7716/Desktop/freelist/malloc/benchmark_my_malloc.cpp \
+ /home/killi-pt7716/Desktop/malloc/freelist/malloc/benchmark_my_malloc.cpp \
  /usr/include/stdc-predef.h \
- /home/killi-pt7716/Desktop/freelist/malloc/src/allocator.h \
+ /home/killi-pt7716/Desktop/malloc/freelist/malloc/src/allocator.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
  /usr/local/include/benchmark/benchmark.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \

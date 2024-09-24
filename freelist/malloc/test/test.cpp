@@ -11,7 +11,7 @@ protected:
     }
 
     void TearDown() override {
-        // Destroy the allocator after each test (handled by destructor)
+        allocator.allocator_destroy();
     }
 };
 
@@ -94,6 +94,5 @@ TEST_F(MemoryAllocatorTest, ReallocatingSmallerSize) {
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
-    
     return RUN_ALL_TESTS();
 }

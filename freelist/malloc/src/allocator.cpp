@@ -4,12 +4,11 @@
 #include "allocator.h"
 
 MemoryAllocator::MemoryAllocator() {
-    allocator_init();
 }
 
 // Destructor: Free the memory pool
 MemoryAllocator::~MemoryAllocator() {
-    allocator_destroy();
+   
 }
 
 // Function to initialize the memory allocator

@@ -1,5 +1,5 @@
 CMakeFiles/testing.dir/src/allocator.cpp.o: \
- /home/killi-pt7716/Desktop/freelist/malloc/src/allocator.cpp \
+ /home/killi-pt7716/Desktop/malloc/freelist/malloc/src/allocator.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/13/cstdlib \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -57,4 +57,4 @@ CMakeFiles/testing.dir/src/allocator.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/c++/13/cstring /usr/include/string.h /usr/include/strings.h \
- /home/killi-pt7716/Desktop/freelist/malloc/src/allocator.h
+ /home/killi-pt7716/Desktop/malloc/freelist/malloc/src/allocator.h

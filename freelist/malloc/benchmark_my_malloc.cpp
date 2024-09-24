@@ -4,6 +4,14 @@
 
 MemoryAllocator allocator;
 
+int main(int argc, char** argv) {
+    allocator.allocator_init();
+    ::benchmark::Initialize(&argc, argv);
+    ::benchmark::RunSpecifiedBenchmarks();
+    allocator.allocator_destroy();
+    return 0;
+}
+
 static void BM_SystemMalloc(benchmark::State& state) {
     for (auto _ : state) {
         // Perform a single allocation and deallocation cycle
@@ -50,9 +58,4 @@ static void BM_CustomMalloc(benchmark::State& state) {
 BENCHMARK(BM_CustomMalloc);
 
 
-int main(int argc, char** argv) {
-    ::benchmark::Initialize(&argc, argv);
-    ::benchmark::RunSpecifiedBenchmarks();
-    allocator.allocator_destroy();
-    return 0;
-}
+

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/killi-pt7716/Desktop/freelist/malloc
+CMAKE_SOURCE_DIR = /home/killi-pt7716/Desktop/malloc/freelist/malloc
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/killi-pt7716/Desktop/freelist/malloc/build
+CMAKE_BINARY_DIR = /home/killi-pt7716/Desktop/malloc/freelist/malloc/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/allocator.dir/depend.make
@@ -70,18 +70,18 @@ include CMakeFiles/allocator.dir/progress.make
 include CMakeFiles/allocator.dir/flags.make
 
 CMakeFiles/allocator.dir/src/allocator.cpp.o: CMakeFiles/allocator.dir/flags.make
-CMakeFiles/allocator.dir/src/allocator.cpp.o: /home/killi-pt7716/Desktop/freelist/malloc/src/allocator.cpp
+CMakeFiles/allocator.dir/src/allocator.cpp.o: /home/killi-pt7716/Desktop/malloc/freelist/malloc/src/allocator.cpp
 CMakeFiles/allocator.dir/src/allocator.cpp.o: CMakeFiles/allocator.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/killi-pt7716/Desktop/freelist/malloc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/allocator.dir/src/allocator.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/allocator.dir/src/allocator.cpp.o -MF CMakeFiles/allocator.dir/src/allocator.cpp.o.d -o CMakeFiles/allocator.dir/src/allocator.cpp.o -c /home/killi-pt7716/Desktop/freelist/malloc/src/allocator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/killi-pt7716/Desktop/malloc/freelist/malloc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/allocator.dir/src/allocator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/allocator.dir/src/allocator.cpp.o -MF CMakeFiles/allocator.dir/src/allocator.cpp.o.d -o CMakeFiles/allocator.dir/src/allocator.cpp.o -c /home/killi-pt7716/Desktop/malloc/freelist/malloc/src/allocator.cpp
 
 CMakeFiles/allocator.dir/src/allocator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/allocator.dir/src/allocator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/killi-pt7716/Desktop/freelist/malloc/src/allocator.cpp > CMakeFiles/allocator.dir/src/allocator.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/killi-pt7716/Desktop/malloc/freelist/malloc/src/allocator.cpp > CMakeFiles/allocator.dir/src/allocator.cpp.i
 
 CMakeFiles/allocator.dir/src/allocator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/allocator.dir/src/allocator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/killi-pt7716/Desktop/freelist/malloc/src/allocator.cpp -o CMakeFiles/allocator.dir/src/allocator.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/killi-pt7716/Desktop/malloc/freelist/malloc/src/allocator.cpp -o CMakeFiles/allocator.dir/src/allocator.cpp.s
 
 # Object files for target allocator
 allocator_OBJECTS = \
@@ -93,7 +93,7 @@ allocator_EXTERNAL_OBJECTS =
 liballocator.a: CMakeFiles/allocator.dir/src/allocator.cpp.o
 liballocator.a: CMakeFiles/allocator.dir/build.make
 liballocator.a: CMakeFiles/allocator.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/killi-pt7716/Desktop/freelist/malloc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library liballocator.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/killi-pt7716/Desktop/malloc/freelist/malloc/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library liballocator.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/allocator.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/allocator.dir/link.txt --verbose=$(VERBOSE)
 
@@ -106,6 +106,6 @@ CMakeFiles/allocator.dir/clean:
 .PHONY : CMakeFiles/allocator.dir/clean
 
 CMakeFiles/allocator.dir/depend:
-	cd /home/killi-pt7716/Desktop/freelist/malloc/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/killi-pt7716/Desktop/freelist/malloc /home/killi-pt7716/Desktop/freelist/malloc /home/killi-pt7716/Desktop/freelist/malloc/build /home/killi-pt7716/Desktop/freelist/malloc/build /home/killi-pt7716/Desktop/freelist/malloc/build/CMakeFiles/allocator.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/killi-pt7716/Desktop/malloc/freelist/malloc/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/killi-pt7716/Desktop/malloc/freelist/malloc /home/killi-pt7716/Desktop/malloc/freelist/malloc /home/killi-pt7716/Desktop/malloc/freelist/malloc/build /home/killi-pt7716/Desktop/malloc/freelist/malloc/build /home/killi-pt7716/Desktop/malloc/freelist/malloc/build/CMakeFiles/allocator.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/allocator.dir/depend
 

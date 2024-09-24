@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/killi-pt7716/Desktop/freelist/malloc/src/allocator.cpp" "CMakeFiles/allocator.dir/src/allocator.cpp.o" "gcc" "CMakeFiles/allocator.dir/src/allocator.cpp.o.d"
+  "/home/killi-pt7716/Desktop/malloc/freelist/malloc/src/allocator.cpp" "CMakeFiles/allocator.dir/src/allocator.cpp.o" "gcc" "CMakeFiles/allocator.dir/src/allocator.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
