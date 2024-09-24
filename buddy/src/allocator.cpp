@@ -5,11 +5,21 @@
 
 Allocator::Allocator() {
     free_list = nullptr;
+    allocated_list = nullptr;  // Initialize the list of allocated blocks
 }
 
 Allocator::~Allocator() {
-}
+    // Free all allocated blocks before destruction
+    BuddyBlock* curr = allocated_list;
+    while (curr) {
+        BuddyBlock* next = curr->next;
+        free(curr);  // Free the block allocated with malloc
+        curr = next;
+    }
 
+    free_list = nullptr;
+    allocated_list = nullptr;
+}
 
 size_t Allocator::check_power_2(size_t size) {
     size_t power = 1;
@@ -22,7 +32,6 @@ size_t Allocator::check_power_2(size_t size) {
 BuddyBlock* Allocator::find_free_block(size_t size) {
     BuddyBlock* curr = free_list;
 
-    // Traverse the free list to find a free block of at least the requested size
     while (curr) {
         if (curr->free && curr->size >= size) {
             // Remove the block from the free list
@@ -75,6 +84,15 @@ void Allocator::add_to_free_list(BuddyBlock* block) {
     free_list = block;
 }
 
+void Allocator::add_to_allocated_list(BuddyBlock* block) {
+    block->next = allocated_list;
+    block->prev = nullptr;
+    if (allocated_list) {
+        allocated_list->prev = block;
+    }
+    allocated_list = block;
+}
+
 void* Allocator::my_malloc(size_t size) {
     if (size == 0) {
         return nullptr;  // Cannot allocate zero-sized block
@@ -86,12 +104,15 @@ void* Allocator::my_malloc(size_t size) {
 
     // If no free block is found, request more memory from the system
     if (!block) {
-        block = (BuddyBlock*)sbrk(block_size);
+        block = (BuddyBlock*)malloc(block_size);
         block->size = block_size;
         block->free = false;
         block->buddy = nullptr;
         block->next = nullptr;
         block->prev = nullptr;
+
+        // Add the newly allocated block to the allocated list
+        add_to_allocated_list(block);
     } else {
         // If a larger block is found, split it to the requested size
         block = split_block(block, block_size);

@@ -5,6 +5,7 @@ project(CustomAllocator)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE CMAKE_BUILD_TYPE "Release")
 
 # Add source directories
 aux_source_directory(src SOURCE_FILES)

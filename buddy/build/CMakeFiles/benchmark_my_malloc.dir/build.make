@@ -73,15 +73,15 @@ CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.o: CMakeFiles/benchma
 CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.o: /home/killi-pt7716/Desktop/malloc/buddy/benchmark_my_malloc.cpp
 CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.o: CMakeFiles/benchmark_my_malloc.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/killi-pt7716/Desktop/malloc/buddy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.o -MF CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.o.d -o CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.o -c /home/killi-pt7716/Desktop/malloc/buddy/benchmark_my_malloc.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.o -MF CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.o.d -o CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.o -c /home/killi-pt7716/Desktop/malloc/buddy/benchmark_my_malloc.cpp
 
 CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/killi-pt7716/Desktop/malloc/buddy/benchmark_my_malloc.cpp > CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/killi-pt7716/Desktop/malloc/buddy/benchmark_my_malloc.cpp > CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.i
 
 CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/killi-pt7716/Desktop/malloc/buddy/benchmark_my_malloc.cpp -o CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/killi-pt7716/Desktop/malloc/buddy/benchmark_my_malloc.cpp -o CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.s
 
 # Object files for target benchmark_my_malloc
 benchmark_my_malloc_OBJECTS = \
