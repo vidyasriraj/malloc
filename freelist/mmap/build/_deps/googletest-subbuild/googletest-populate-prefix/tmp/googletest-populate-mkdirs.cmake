@@ -4,19 +4,19 @@
 cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
-  "/home/killi-pt7716/Desktop/malloc/freelist/build/_deps/googletest-src"
-  "/home/killi-pt7716/Desktop/malloc/freelist/build/_deps/googletest-build"
-  "/home/killi-pt7716/Desktop/malloc/freelist/build/_deps/googletest-subbuild/googletest-populate-prefix"
-  "/home/killi-pt7716/Desktop/malloc/freelist/build/_deps/googletest-subbuild/googletest-populate-prefix/tmp"
-  "/home/killi-pt7716/Desktop/malloc/freelist/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp"
-  "/home/killi-pt7716/Desktop/malloc/freelist/build/_deps/googletest-subbuild/googletest-populate-prefix/src"
-  "/home/killi-pt7716/Desktop/malloc/freelist/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp"
+  "/home/killi-pt7716/Desktop/malloc/freelist/mmap/build/_deps/googletest-src"
+  "/home/killi-pt7716/Desktop/malloc/freelist/mmap/build/_deps/googletest-build"
+  "/home/killi-pt7716/Desktop/malloc/freelist/mmap/build/_deps/googletest-subbuild/googletest-populate-prefix"
+  "/home/killi-pt7716/Desktop/malloc/freelist/mmap/build/_deps/googletest-subbuild/googletest-populate-prefix/tmp"
+  "/home/killi-pt7716/Desktop/malloc/freelist/mmap/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp"
+  "/home/killi-pt7716/Desktop/malloc/freelist/mmap/build/_deps/googletest-subbuild/googletest-populate-prefix/src"
+  "/home/killi-pt7716/Desktop/malloc/freelist/mmap/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "/home/killi-pt7716/Desktop/malloc/freelist/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/${subDir}")
+    file(MAKE_DIRECTORY "/home/killi-pt7716/Desktop/malloc/freelist/mmap/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "/home/killi-pt7716/Desktop/malloc/freelist/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "/home/killi-pt7716/Desktop/malloc/freelist/mmap/build/_deps/googletest-subbuild/googletest-populate-prefix/src/googletest-populate-stamp${cfgdir}") # cfgdir has leading slash
 endif()

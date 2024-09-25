@@ -93,7 +93,6 @@ benchmark_my_malloc_EXTERNAL_OBJECTS =
 benchmark_my_malloc: CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.o
 benchmark_my_malloc: CMakeFiles/benchmark_my_malloc.dir/build.make
 benchmark_my_malloc: liballocator.a
-benchmark_my_malloc: /usr/lib/x86_64-linux-gnu/libbenchmark.so.1.8.3
 benchmark_my_malloc: CMakeFiles/benchmark_my_malloc.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/killi-pt7716/Desktop/malloc/buddy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable benchmark_my_malloc"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/benchmark_my_malloc.dir/link.txt --verbose=$(VERBOSE)

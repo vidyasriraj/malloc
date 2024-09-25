@@ -198,17 +198,43 @@ testing/fast:
 .PHONY : testing/fast
 
 #=============================================================================
-# Target rules for targets named benchmark_my_malloc
+# Target rules for targets named small
 
 # Build rule for target.
-benchmark_my_malloc: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 benchmark_my_malloc
-.PHONY : benchmark_my_malloc
+small: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 small
+.PHONY : small
 
 # fast build rule for target.
-benchmark_my_malloc/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark_my_malloc.dir/build.make CMakeFiles/benchmark_my_malloc.dir/build
-.PHONY : benchmark_my_malloc/fast
+small/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/small.dir/build.make CMakeFiles/small.dir/build
+.PHONY : small/fast
+
+#=============================================================================
+# Target rules for targets named large
+
+# Build rule for target.
+large: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 large
+.PHONY : large
+
+# fast build rule for target.
+large/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/large.dir/build.make CMakeFiles/large.dir/build
+.PHONY : large/fast
+
+#=============================================================================
+# Target rules for targets named random
+
+# Build rule for target.
+random: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 random
+.PHONY : random
+
+# fast build rule for target.
+random/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/random.dir/build.make CMakeFiles/random.dir/build
+.PHONY : random/fast
 
 #=============================================================================
 # Target rules for targets named gmock
@@ -262,29 +288,77 @@ gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
-benchmark_my_malloc.o: benchmark_my_malloc.cpp.o
-.PHONY : benchmark_my_malloc.o
+large.o: large.cpp.o
+.PHONY : large.o
 
 # target to build an object file
-benchmark_my_malloc.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark_my_malloc.dir/build.make CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.o
-.PHONY : benchmark_my_malloc.cpp.o
+large.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/large.dir/build.make CMakeFiles/large.dir/large.cpp.o
+.PHONY : large.cpp.o
 
-benchmark_my_malloc.i: benchmark_my_malloc.cpp.i
-.PHONY : benchmark_my_malloc.i
+large.i: large.cpp.i
+.PHONY : large.i
 
 # target to preprocess a source file
-benchmark_my_malloc.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark_my_malloc.dir/build.make CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.i
-.PHONY : benchmark_my_malloc.cpp.i
+large.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/large.dir/build.make CMakeFiles/large.dir/large.cpp.i
+.PHONY : large.cpp.i
 
-benchmark_my_malloc.s: benchmark_my_malloc.cpp.s
-.PHONY : benchmark_my_malloc.s
+large.s: large.cpp.s
+.PHONY : large.s
 
 # target to generate assembly for a file
-benchmark_my_malloc.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/benchmark_my_malloc.dir/build.make CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.s
-.PHONY : benchmark_my_malloc.cpp.s
+large.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/large.dir/build.make CMakeFiles/large.dir/large.cpp.s
+.PHONY : large.cpp.s
+
+random.o: random.cpp.o
+.PHONY : random.o
+
+# target to build an object file
+random.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/random.dir/build.make CMakeFiles/random.dir/random.cpp.o
+.PHONY : random.cpp.o
+
+random.i: random.cpp.i
+.PHONY : random.i
+
+# target to preprocess a source file
+random.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/random.dir/build.make CMakeFiles/random.dir/random.cpp.i
+.PHONY : random.cpp.i
+
+random.s: random.cpp.s
+.PHONY : random.s
+
+# target to generate assembly for a file
+random.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/random.dir/build.make CMakeFiles/random.dir/random.cpp.s
+.PHONY : random.cpp.s
+
+small.o: small.cpp.o
+.PHONY : small.o
+
+# target to build an object file
+small.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/small.dir/build.make CMakeFiles/small.dir/small.cpp.o
+.PHONY : small.cpp.o
+
+small.i: small.cpp.i
+.PHONY : small.i
+
+# target to preprocess a source file
+small.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/small.dir/build.make CMakeFiles/small.dir/small.cpp.i
+.PHONY : small.cpp.i
+
+small.s: small.cpp.s
+.PHONY : small.s
+
+# target to generate assembly for a file
+small.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/small.dir/build.make CMakeFiles/small.dir/small.cpp.s
+.PHONY : small.cpp.s
 
 src/allocator.o: src/allocator.cpp.o
 .PHONY : src/allocator.o
@@ -351,15 +425,23 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... allocator"
-	@echo "... benchmark_my_malloc"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... large"
+	@echo "... random"
+	@echo "... small"
 	@echo "... testing"
-	@echo "... benchmark_my_malloc.o"
-	@echo "... benchmark_my_malloc.i"
-	@echo "... benchmark_my_malloc.s"
+	@echo "... large.o"
+	@echo "... large.i"
+	@echo "... large.s"
+	@echo "... random.o"
+	@echo "... random.i"
+	@echo "... random.s"
+	@echo "... small.o"
+	@echo "... small.i"
+	@echo "... small.s"
 	@echo "... src/allocator.o"
 	@echo "... src/allocator.i"
 	@echo "... src/allocator.s"

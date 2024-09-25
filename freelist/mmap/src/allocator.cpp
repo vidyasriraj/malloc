@@ -47,11 +47,6 @@ void Allocator::my_free(void* ptr) {
     // Get the block header (which is located just before the memory returned to the user)
     FreeBlock* block = (FreeBlock*)ptr - 1;
 
-    // Optionally, add the block back to the free list
-    // block->next = freeList;
-    // freeList = block;
-
-    // Unmap the memory using the exact size stored in the block header
     if (munmap(block, block->size) == -1) {
         std::cerr << "munmap failed: " << errno << std::endl;
     }

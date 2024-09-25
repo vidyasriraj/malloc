@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/killi-pt7716/Desktop/malloc/freelist
+CMAKE_SOURCE_DIR = /home/killi-pt7716/Desktop/malloc/freelist/mmap
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/killi-pt7716/Desktop/malloc/freelist/build
+CMAKE_BINARY_DIR = /home/killi-pt7716/Desktop/malloc/freelist/mmap/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/testing.dir/depend.make
@@ -70,32 +70,32 @@ include CMakeFiles/testing.dir/progress.make
 include CMakeFiles/testing.dir/flags.make
 
 CMakeFiles/testing.dir/test/test.cpp.o: CMakeFiles/testing.dir/flags.make
-CMakeFiles/testing.dir/test/test.cpp.o: /home/killi-pt7716/Desktop/malloc/freelist/test/test.cpp
+CMakeFiles/testing.dir/test/test.cpp.o: /home/killi-pt7716/Desktop/malloc/freelist/mmap/test/test.cpp
 CMakeFiles/testing.dir/test/test.cpp.o: CMakeFiles/testing.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/killi-pt7716/Desktop/malloc/freelist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/testing.dir/test/test.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testing.dir/test/test.cpp.o -MF CMakeFiles/testing.dir/test/test.cpp.o.d -o CMakeFiles/testing.dir/test/test.cpp.o -c /home/killi-pt7716/Desktop/malloc/freelist/test/test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/killi-pt7716/Desktop/malloc/freelist/mmap/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/testing.dir/test/test.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testing.dir/test/test.cpp.o -MF CMakeFiles/testing.dir/test/test.cpp.o.d -o CMakeFiles/testing.dir/test/test.cpp.o -c /home/killi-pt7716/Desktop/malloc/freelist/mmap/test/test.cpp
 
 CMakeFiles/testing.dir/test/test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/testing.dir/test/test.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/killi-pt7716/Desktop/malloc/freelist/test/test.cpp > CMakeFiles/testing.dir/test/test.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/killi-pt7716/Desktop/malloc/freelist/mmap/test/test.cpp > CMakeFiles/testing.dir/test/test.cpp.i
 
 CMakeFiles/testing.dir/test/test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testing.dir/test/test.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/killi-pt7716/Desktop/malloc/freelist/test/test.cpp -o CMakeFiles/testing.dir/test/test.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/killi-pt7716/Desktop/malloc/freelist/mmap/test/test.cpp -o CMakeFiles/testing.dir/test/test.cpp.s
 
 CMakeFiles/testing.dir/src/allocator.cpp.o: CMakeFiles/testing.dir/flags.make
-CMakeFiles/testing.dir/src/allocator.cpp.o: /home/killi-pt7716/Desktop/malloc/freelist/src/allocator.cpp
+CMakeFiles/testing.dir/src/allocator.cpp.o: /home/killi-pt7716/Desktop/malloc/freelist/mmap/src/allocator.cpp
 CMakeFiles/testing.dir/src/allocator.cpp.o: CMakeFiles/testing.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/killi-pt7716/Desktop/malloc/freelist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/testing.dir/src/allocator.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testing.dir/src/allocator.cpp.o -MF CMakeFiles/testing.dir/src/allocator.cpp.o.d -o CMakeFiles/testing.dir/src/allocator.cpp.o -c /home/killi-pt7716/Desktop/malloc/freelist/src/allocator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/killi-pt7716/Desktop/malloc/freelist/mmap/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/testing.dir/src/allocator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testing.dir/src/allocator.cpp.o -MF CMakeFiles/testing.dir/src/allocator.cpp.o.d -o CMakeFiles/testing.dir/src/allocator.cpp.o -c /home/killi-pt7716/Desktop/malloc/freelist/mmap/src/allocator.cpp
 
 CMakeFiles/testing.dir/src/allocator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/testing.dir/src/allocator.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/killi-pt7716/Desktop/malloc/freelist/src/allocator.cpp > CMakeFiles/testing.dir/src/allocator.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/killi-pt7716/Desktop/malloc/freelist/mmap/src/allocator.cpp > CMakeFiles/testing.dir/src/allocator.cpp.i
 
 CMakeFiles/testing.dir/src/allocator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testing.dir/src/allocator.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/killi-pt7716/Desktop/malloc/freelist/src/allocator.cpp -o CMakeFiles/testing.dir/src/allocator.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/killi-pt7716/Desktop/malloc/freelist/mmap/src/allocator.cpp -o CMakeFiles/testing.dir/src/allocator.cpp.s
 
 # Object files for target testing
 testing_OBJECTS = \
@@ -111,7 +111,7 @@ testing: CMakeFiles/testing.dir/build.make
 testing: lib/libgtest_main.a
 testing: lib/libgtest.a
 testing: CMakeFiles/testing.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/killi-pt7716/Desktop/malloc/freelist/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable testing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/killi-pt7716/Desktop/malloc/freelist/mmap/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable testing"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/testing.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -123,6 +123,6 @@ CMakeFiles/testing.dir/clean:
 .PHONY : CMakeFiles/testing.dir/clean
 
 CMakeFiles/testing.dir/depend:
-	cd /home/killi-pt7716/Desktop/malloc/freelist/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/killi-pt7716/Desktop/malloc/freelist /home/killi-pt7716/Desktop/malloc/freelist /home/killi-pt7716/Desktop/malloc/freelist/build /home/killi-pt7716/Desktop/malloc/freelist/build /home/killi-pt7716/Desktop/malloc/freelist/build/CMakeFiles/testing.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/killi-pt7716/Desktop/malloc/freelist/mmap/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/killi-pt7716/Desktop/malloc/freelist/mmap /home/killi-pt7716/Desktop/malloc/freelist/mmap /home/killi-pt7716/Desktop/malloc/freelist/mmap/build /home/killi-pt7716/Desktop/malloc/freelist/mmap/build /home/killi-pt7716/Desktop/malloc/freelist/mmap/build/CMakeFiles/testing.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/testing.dir/depend
 

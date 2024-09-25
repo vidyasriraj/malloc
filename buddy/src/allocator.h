@@ -17,6 +17,8 @@ class Allocator {
 public:
     Allocator();
     ~Allocator();
+    void init();
+    void cleanup();
 
     // Allocates memory of at least 'size' bytes
     void* my_malloc(size_t size);

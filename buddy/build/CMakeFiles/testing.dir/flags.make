@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -isystem /home/killi-pt7716/Desktop/malloc/buddy/build/_deps/googletest-src/googletest/include -isystem /home/killi-pt7716/Desktop/malloc/buddy/build/_deps/googletest-src/googletest
 
-CXX_FLAGS = -std=c++20
+CXX_FLAGS = -O3 -DNDEBUG -std=c++20
 

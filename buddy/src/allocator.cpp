@@ -4,16 +4,36 @@
 #include <cstdlib> 
 
 Allocator::Allocator() {
-    free_list = nullptr;
-    allocated_list = nullptr;  // Initialize the list of allocated blocks
+   
 }
 
 Allocator::~Allocator() {
-    // Free all allocated blocks before destruction
+ 
+}
+
+void Allocator::init() {
+    free_list = nullptr;
+    allocated_list = nullptr;
+}
+
+
+void Allocator::cleanup() {
     BuddyBlock* curr = allocated_list;
     while (curr) {
         BuddyBlock* next = curr->next;
-        free(curr);  // Free the block allocated with malloc
+        
+        // Free only if the block is not already free
+        if (!curr->free) {
+            free(curr);
+        }
+        curr = next;
+    }
+
+    // Ensure the free list is also cleaned up
+    curr = free_list;
+    while (curr) {
+        BuddyBlock* next = curr->next;
+        free(curr);
         curr = next;
     }
 
@@ -34,7 +54,6 @@ BuddyBlock* Allocator::find_free_block(size_t size) {
 
     while (curr) {
         if (curr->free && curr->size >= size) {
-            // Remove the block from the free list
             if (curr->prev) {
                 curr->prev->next = curr->next;
             } else {
@@ -126,6 +145,10 @@ void Allocator::my_free(void* ptr) {
 
     // Get the block header
     BuddyBlock* block = (BuddyBlock*)ptr - 1;
+    if (block->free) {
+        return;  // Avoid double-freeing
+    }
+    
     block->free = true;
 
     // Try to merge the block with its buddy

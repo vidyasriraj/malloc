@@ -3,13 +3,17 @@
 
 class AllocatorTest : public ::testing::Test {
 protected:
+    Allocator allocator;
     virtual void SetUp() {
+        allocator.init();
     }
 
     virtual void TearDown() {
+        allocator.cleanup();
+        
     }
 
-    Allocator allocator;
+    
 };
 
 // Test case for large allocation
