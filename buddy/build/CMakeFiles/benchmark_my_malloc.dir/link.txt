@@ -1,1 +1,0 @@
-/usr/bin/g++ -O3 -DNDEBUG CMakeFiles/benchmark_my_malloc.dir/benchmark_my_malloc.cpp.o -o benchmark_my_malloc  liballocator.a 

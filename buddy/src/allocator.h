@@ -19,17 +19,14 @@ public:
     ~Allocator();
     void init();
     void cleanup();
-
-    // Allocates memory of at least 'size' bytes
+    BuddyBlock* free_list;  
+    
     void* my_malloc(size_t size);
-
-    // Frees memory that was previously allocated with my_malloc
     void my_free(void* ptr);
 
 private:
-    BuddyBlock* free_list;       // Pointer to the head of the free list
-    BuddyBlock* allocated_list;  // Pointer to the head of the allocated block list
-
+         // Pointer to the head of the free list
+   
     // Utility function: returns the next power of two greater than or equal to 'size'
     size_t check_power_2(size_t size);
 
@@ -41,9 +38,6 @@ private:
 
     // Adds a block to the free list
     void add_to_free_list(BuddyBlock* block);
-
-    // Adds a block to the allocated list to track allocated blocks for cleanup
-    void add_to_allocated_list(BuddyBlock* block);
 
     // Attempts to merge a block with its buddy if both are free
     void merge_with_buddy(BuddyBlock* block);

@@ -237,6 +237,19 @@ random/fast:
 .PHONY : random/fast
 
 #=============================================================================
+# Target rules for targets named bench
+
+# Build rule for target.
+bench: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bench
+.PHONY : bench
+
+# fast build rule for target.
+bench/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench.dir/build.make CMakeFiles/bench.dir/build
+.PHONY : bench/fast
+
+#=============================================================================
 # Target rules for targets named gmock
 
 # Build rule for target.
@@ -287,6 +300,30 @@ gtest_main: cmake_check_build_system
 gtest_main/fast:
 	$(MAKE) $(MAKESILENT) -f _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build.make _deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
+
+bench.o: bench.cpp.o
+.PHONY : bench.o
+
+# target to build an object file
+bench.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench.dir/build.make CMakeFiles/bench.dir/bench.cpp.o
+.PHONY : bench.cpp.o
+
+bench.i: bench.cpp.i
+.PHONY : bench.i
+
+# target to preprocess a source file
+bench.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench.dir/build.make CMakeFiles/bench.dir/bench.cpp.i
+.PHONY : bench.cpp.i
+
+bench.s: bench.cpp.s
+.PHONY : bench.s
+
+# target to generate assembly for a file
+bench.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bench.dir/build.make CMakeFiles/bench.dir/bench.cpp.s
+.PHONY : bench.cpp.s
 
 large.o: large.cpp.o
 .PHONY : large.o
@@ -425,6 +462,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... allocator"
+	@echo "... bench"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"
@@ -433,6 +471,9 @@ help:
 	@echo "... random"
 	@echo "... small"
 	@echo "... testing"
+	@echo "... bench.o"
+	@echo "... bench.i"
+	@echo "... bench.s"
 	@echo "... large.o"
 	@echo "... large.i"
 	@echo "... large.s"

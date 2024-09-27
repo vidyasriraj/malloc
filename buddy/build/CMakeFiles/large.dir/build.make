@@ -73,15 +73,15 @@ CMakeFiles/large.dir/large.cpp.o: CMakeFiles/large.dir/flags.make
 CMakeFiles/large.dir/large.cpp.o: /home/killi-pt7716/Desktop/malloc/buddy/large.cpp
 CMakeFiles/large.dir/large.cpp.o: CMakeFiles/large.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/killi-pt7716/Desktop/malloc/buddy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/large.dir/large.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/large.dir/large.cpp.o -MF CMakeFiles/large.dir/large.cpp.o.d -o CMakeFiles/large.dir/large.cpp.o -c /home/killi-pt7716/Desktop/malloc/buddy/large.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/large.dir/large.cpp.o -MF CMakeFiles/large.dir/large.cpp.o.d -o CMakeFiles/large.dir/large.cpp.o -c /home/killi-pt7716/Desktop/malloc/buddy/large.cpp
 
 CMakeFiles/large.dir/large.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/large.dir/large.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/killi-pt7716/Desktop/malloc/buddy/large.cpp > CMakeFiles/large.dir/large.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/killi-pt7716/Desktop/malloc/buddy/large.cpp > CMakeFiles/large.dir/large.cpp.i
 
 CMakeFiles/large.dir/large.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/large.dir/large.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/killi-pt7716/Desktop/malloc/buddy/large.cpp -o CMakeFiles/large.dir/large.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/killi-pt7716/Desktop/malloc/buddy/large.cpp -o CMakeFiles/large.dir/large.cpp.s
 
 # Object files for target large
 large_OBJECTS = \

@@ -1,2 +1,2 @@
-# Empty dependencies file for benchmark_my_malloc.
+# Empty dependencies file for bench.
 # This may be replaced when dependencies are built.
