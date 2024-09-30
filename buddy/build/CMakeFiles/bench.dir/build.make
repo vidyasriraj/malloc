@@ -73,15 +73,15 @@ CMakeFiles/bench.dir/bench.cpp.o: CMakeFiles/bench.dir/flags.make
 CMakeFiles/bench.dir/bench.cpp.o: /home/killi-pt7716/Desktop/malloc/buddy/bench.cpp
 CMakeFiles/bench.dir/bench.cpp.o: CMakeFiles/bench.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/killi-pt7716/Desktop/malloc/buddy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/bench.dir/bench.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bench.dir/bench.cpp.o -MF CMakeFiles/bench.dir/bench.cpp.o.d -o CMakeFiles/bench.dir/bench.cpp.o -c /home/killi-pt7716/Desktop/malloc/buddy/bench.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bench.dir/bench.cpp.o -MF CMakeFiles/bench.dir/bench.cpp.o.d -o CMakeFiles/bench.dir/bench.cpp.o -c /home/killi-pt7716/Desktop/malloc/buddy/bench.cpp
 
 CMakeFiles/bench.dir/bench.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/bench.dir/bench.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/killi-pt7716/Desktop/malloc/buddy/bench.cpp > CMakeFiles/bench.dir/bench.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/killi-pt7716/Desktop/malloc/buddy/bench.cpp > CMakeFiles/bench.dir/bench.cpp.i
 
 CMakeFiles/bench.dir/bench.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/bench.dir/bench.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/killi-pt7716/Desktop/malloc/buddy/bench.cpp -o CMakeFiles/bench.dir/bench.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/killi-pt7716/Desktop/malloc/buddy/bench.cpp -o CMakeFiles/bench.dir/bench.cpp.s
 
 # Object files for target bench
 bench_OBJECTS = \

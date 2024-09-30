@@ -73,29 +73,29 @@ CMakeFiles/testing.dir/test/test.cpp.o: CMakeFiles/testing.dir/flags.make
 CMakeFiles/testing.dir/test/test.cpp.o: /home/killi-pt7716/Desktop/malloc/buddy/test/test.cpp
 CMakeFiles/testing.dir/test/test.cpp.o: CMakeFiles/testing.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/killi-pt7716/Desktop/malloc/buddy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/testing.dir/test/test.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testing.dir/test/test.cpp.o -MF CMakeFiles/testing.dir/test/test.cpp.o.d -o CMakeFiles/testing.dir/test/test.cpp.o -c /home/killi-pt7716/Desktop/malloc/buddy/test/test.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testing.dir/test/test.cpp.o -MF CMakeFiles/testing.dir/test/test.cpp.o.d -o CMakeFiles/testing.dir/test/test.cpp.o -c /home/killi-pt7716/Desktop/malloc/buddy/test/test.cpp
 
 CMakeFiles/testing.dir/test/test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/testing.dir/test/test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/killi-pt7716/Desktop/malloc/buddy/test/test.cpp > CMakeFiles/testing.dir/test/test.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/killi-pt7716/Desktop/malloc/buddy/test/test.cpp > CMakeFiles/testing.dir/test/test.cpp.i
 
 CMakeFiles/testing.dir/test/test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testing.dir/test/test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/killi-pt7716/Desktop/malloc/buddy/test/test.cpp -o CMakeFiles/testing.dir/test/test.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/killi-pt7716/Desktop/malloc/buddy/test/test.cpp -o CMakeFiles/testing.dir/test/test.cpp.s
 
 CMakeFiles/testing.dir/src/allocator.cpp.o: CMakeFiles/testing.dir/flags.make
 CMakeFiles/testing.dir/src/allocator.cpp.o: /home/killi-pt7716/Desktop/malloc/buddy/src/allocator.cpp
 CMakeFiles/testing.dir/src/allocator.cpp.o: CMakeFiles/testing.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/killi-pt7716/Desktop/malloc/buddy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/testing.dir/src/allocator.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testing.dir/src/allocator.cpp.o -MF CMakeFiles/testing.dir/src/allocator.cpp.o.d -o CMakeFiles/testing.dir/src/allocator.cpp.o -c /home/killi-pt7716/Desktop/malloc/buddy/src/allocator.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/testing.dir/src/allocator.cpp.o -MF CMakeFiles/testing.dir/src/allocator.cpp.o.d -o CMakeFiles/testing.dir/src/allocator.cpp.o -c /home/killi-pt7716/Desktop/malloc/buddy/src/allocator.cpp
 
 CMakeFiles/testing.dir/src/allocator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/testing.dir/src/allocator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/killi-pt7716/Desktop/malloc/buddy/src/allocator.cpp > CMakeFiles/testing.dir/src/allocator.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/killi-pt7716/Desktop/malloc/buddy/src/allocator.cpp > CMakeFiles/testing.dir/src/allocator.cpp.i
 
 CMakeFiles/testing.dir/src/allocator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/testing.dir/src/allocator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/killi-pt7716/Desktop/malloc/buddy/src/allocator.cpp -o CMakeFiles/testing.dir/src/allocator.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/killi-pt7716/Desktop/malloc/buddy/src/allocator.cpp -o CMakeFiles/testing.dir/src/allocator.cpp.s
 
 # Object files for target testing
 testing_OBJECTS = \

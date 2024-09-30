@@ -73,15 +73,15 @@ CMakeFiles/random.dir/random.cpp.o: CMakeFiles/random.dir/flags.make
 CMakeFiles/random.dir/random.cpp.o: /home/killi-pt7716/Desktop/malloc/buddy/random.cpp
 CMakeFiles/random.dir/random.cpp.o: CMakeFiles/random.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/killi-pt7716/Desktop/malloc/buddy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/random.dir/random.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/random.dir/random.cpp.o -MF CMakeFiles/random.dir/random.cpp.o.d -o CMakeFiles/random.dir/random.cpp.o -c /home/killi-pt7716/Desktop/malloc/buddy/random.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/random.dir/random.cpp.o -MF CMakeFiles/random.dir/random.cpp.o.d -o CMakeFiles/random.dir/random.cpp.o -c /home/killi-pt7716/Desktop/malloc/buddy/random.cpp
 
 CMakeFiles/random.dir/random.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/random.dir/random.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/killi-pt7716/Desktop/malloc/buddy/random.cpp > CMakeFiles/random.dir/random.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/killi-pt7716/Desktop/malloc/buddy/random.cpp > CMakeFiles/random.dir/random.cpp.i
 
 CMakeFiles/random.dir/random.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/random.dir/random.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/killi-pt7716/Desktop/malloc/buddy/random.cpp -o CMakeFiles/random.dir/random.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/killi-pt7716/Desktop/malloc/buddy/random.cpp -o CMakeFiles/random.dir/random.cpp.s
 
 # Object files for target random
 random_OBJECTS = \

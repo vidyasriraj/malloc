@@ -1,71 +1,67 @@
-#include "src/allocator.h"
-#include <chrono>
 #include <iostream>
 #include <vector>
+#include <thread>
+#include <chrono>
+#include "src/allocator.h"
 
 Allocator allocator;
 
+void thread_allocations(int iterations, size_t size, bool use_custom_allocator) {
+    std::vector<void*> allocations;
+    
+    for (int i = 0; i < iterations; ++i) {
+        void* ptr = use_custom_allocator ? allocator.my_malloc(size) : malloc(size);
+        allocations.push_back(ptr);
+    }
+
+    for (void* ptr : allocations) {
+        if (use_custom_allocator) {
+            allocator.my_free(ptr);
+        } else {
+            free(ptr);
+        }
+    }
+}
+
 int main() {
     allocator.init();
-    // For accurate timing
     using clock = std::chrono::high_resolution_clock;
+
+    const int num_threads = 4;  // Number of threads
+    const int iterations_per_thread = 2500;  
+    const size_t small_size = 32;  // Size of each allocation
     
-    // 100,000 small, short-lived allocations
-    std::vector<void*> small_allocations;
-    size_t small_size = 32;  // Small allocations of 32 bytes
+    // Measure time for custom allocator
     auto start = clock::now();
-    for (int i = 0; i < 100000; ++i) {
-        void* ptr = allocator.my_malloc(small_size);
-         if (ptr == nullptr) {
-            std::cerr << "Allocation failed at iteration " << i << "\n";
-            break;
-        }
-        small_allocations.push_back(ptr);
+    std::vector<std::thread> threads;
+    for (int i = 0; i < num_threads; ++i) {
+        threads.emplace_back(thread_allocations, iterations_per_thread, small_size, true);
+    }
+    for (auto& th : threads) {
+        th.join();
     }
     auto end = clock::now();
-    std::cout << "Time for 100,000 small allocations: "
-              << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count()
-              << " ns\n";
-
-    start = clock::now();
-    for (void* ptr : small_allocations) {
-        allocator.my_free(ptr);
-    }
-    end = clock::now();
-    std::cout << "Time for freeing 100,000 small allocations: "
-              << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count()
-              << " ns\n";
-
-    small_allocations.clear();
+    std::cout << "Time for " << num_threads * iterations_per_thread 
+              << " small allocations with custom allocator (multithreaded): "
+              << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()
+              << " ms\n";
 
     allocator.cleanup();
 
-    std::vector<void*> small_allocations_malloc;
-
+    // Measure time for malloc/free (standard allocator)
     start = clock::now();
-    for (int i = 0; i < 100000; ++i) {
-        void* ptr = malloc(small_size);
-        if (ptr == nullptr) {
-            std::cerr << "Allocation failed at iteration " << i << "\n";
-            break;
-        }
-        small_allocations_malloc.push_back(ptr);
+    threads.clear();
+    for (int i = 0; i < num_threads; ++i) {
+        threads.emplace_back(thread_allocations, iterations_per_thread, small_size, false);
+    }
+    for (auto& th : threads) {
+        th.join();
     }
     end = clock::now();
-    std::cout << "Time for 100,000 small allocations malloc: "
-              << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count()
-              << " ns\n";
-
-    start = clock::now();
-    for (void* ptr : small_allocations_malloc) {
-        free(ptr);
-    }
-    end = clock::now();
-    std::cout << "Time for freeing 100,000 small allocations: "
-              << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count()
-              << " ns\n";
-    small_allocations_malloc.clear();
-   
+    std::cout << "Time for " << num_threads * iterations_per_thread 
+              << " small allocations with malloc (multithreaded): "
+              << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()
+              << " ms\n";
 
     return 0;
 }

@@ -5,8 +5,6 @@
 
 Allocator allocator;
 
-
-
 int main() {
     allocator.init();
     // For accurate timing

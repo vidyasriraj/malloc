@@ -1,29 +1,25 @@
 #include "allocator.h"
-#include <bits/stdc++.h>
+#include <unordered_map>
+#include <cstdlib>
+
+std::mutex allocator_mutex;  
 
 Allocator::Allocator() {
-   
 }
 
-Allocator::~Allocator() {
- 
+Allocator::~Allocator() {   
 }
 
 void Allocator::init() {
-    free_list = nullptr;
+    free_list_map.clear();
 }
 
-
 void Allocator::cleanup() {
-    BuddyBlock* curr;
-    curr = free_list;
-    while (curr) {
-        BuddyBlock* next = curr->next;
-        free(curr);
-        curr = next;
+    for (auto& entry : free_list_map) {
+        free(entry.second);
     }
-
-    free_list = nullptr;
+    free_list_map.clear();
+    
 }
 
 size_t Allocator::check_power_2(size_t size) {
@@ -35,132 +31,101 @@ size_t Allocator::check_power_2(size_t size) {
 }
 
 BuddyBlock* Allocator::find_free_block(size_t size) {
-    BuddyBlock* curr = free_list;
+    BuddyBlock* suitable_block = nullptr;
+    size_t suitable_size = 0;
 
-    while (curr) {
-        if (curr->free && curr->size >= size) {
-            if (curr->prev) {
-                curr->prev->next = curr->next;
-            } else {
-                free_list = curr->next;
+    // Iterate over the hash map to find the smallest suitable block
+    for (auto& entry : free_list_map) {
+        BuddyBlock* block = entry.second;
+        if ( block->size >= size) {
+            if (!suitable_block || block->size < suitable_size) {
+                suitable_block = block;
+                suitable_size = block->size;
             }
-            if (curr->next) {
-                curr->next->prev = curr->prev;
-            }
-
-            curr->next = nullptr;
-            curr->prev = nullptr;
-            curr->free = false;
-            return curr;
         }
-        curr = curr->next;
     }
 
-    // No suitable block found, return nullptr
+    if (suitable_block) {
+        free_list_map.erase((size_t)suitable_block);
+        suitable_block->free = false;
+        return suitable_block;
+    }
     return nullptr;
 }
 
 BuddyBlock* Allocator::split_block(BuddyBlock* block, size_t size) {
-    
-
     while (block->size > size) {
         block->size /= 2;
-
         BuddyBlock* buddy = (BuddyBlock*)((char*)block + block->size);
         buddy->size = block->size;
         buddy->free = true;
         buddy->buddy = block;
-        buddy->next = nullptr;
-        buddy->prev = nullptr;
-
-        add_to_free_list(buddy);  // Add the buddy block to the free list
+        block->buddy = buddy;
+        add_to_free_list(buddy);
     }
 
     return block;
 }
 
 void Allocator::add_to_free_list(BuddyBlock* block) {
-    block->next = free_list;
-    block->prev = nullptr;
-    if (free_list) {
-        free_list->prev = block;
-    }
-    free_list = block;
+    size_t key = (size_t)block;
+    free_list_map[key] = block;
 }
 
 void* Allocator::my_malloc(size_t size) {
+    std::lock_guard<std::mutex> lock(allocator_mutex);
     if (size == 0) {
-        return nullptr;  // Cannot allocate zero-sized block
+        return nullptr; 
     }
 
-    // Add header size to the allocation request
-    size_t block_size = check_power_2(size + sizeof(BuddyBlock));
-    BuddyBlock* block = find_free_block(block_size);
+    size_t total_size = check_power_2(size + sizeof(BuddyBlock));
+    BuddyBlock* block = find_free_block(total_size);
 
-    // If no free block is found, request more memory from the system
     if (!block) {
-        block = (BuddyBlock*)malloc(block_size);
-        block->size = block_size;
+        block = (BuddyBlock*)malloc(total_size);
+        if (!block) {
+            return nullptr; 
+        }
+        block->size = total_size;
         block->free = false;
         block->buddy = nullptr;
-        block->next = nullptr;
-        block->prev = nullptr;
-
     } else {
-        // If a larger block is found, split it to the requested size
-        block = split_block(block, block_size);
+        block = split_block(block, total_size);
     }
 
-    return (void*)(block + 1);  // Return memory after the block header
+    return (void*)(block + 1);  
 }
 
 void Allocator::my_free(void* ptr) {
+    std::lock_guard<std::mutex> lock(allocator_mutex);
     if (!ptr) return;
 
-    // Get the block header
     BuddyBlock* block = (BuddyBlock*)((char*)ptr - sizeof(BuddyBlock));
     if (block->free) {
         return;  
     }
-    
-    block->free = true;
 
-    // Try to merge the block with its buddy
+    block->free = true;
+    add_to_free_list(block);
+
     merge_with_buddy(block);
 }
 
 void Allocator::merge_with_buddy(BuddyBlock* block) {
-    BuddyBlock* buddy = nullptr;
-    size_t buddy_address = (size_t)((char*)block + block->size);
-    
-    // Traverse the free list to find the buddy
-    BuddyBlock* curr = free_list;
-    while (curr) {
-        // Check if current block is the buddy of the given block
-        if ((size_t)curr == buddy_address && curr->size == block->size) {
-            buddy = curr;
-            break;
-        }
-        curr = curr->next;
-    }
+    size_t buddy_address = (size_t)block ^ block->size;  // XOR to find buddy address
 
-    if (buddy) {
-        // Remove buddy from free list
-        if (buddy->prev) {
-            buddy->prev->next = buddy->next;
-        } else {
-            free_list = buddy->next;
-        }
-        if (buddy->next) {
-            buddy->next->prev = buddy->prev;
-        }
+    // Check if the buddy exists in the hash map
+    auto it = free_list_map.find(buddy_address);
+    if (it != free_list_map.end()) {
+        BuddyBlock* buddy = it->second;
+
+        // Remove buddy from the map
+        free_list_map.erase(it);
 
         // Merge blocks
         block->size *= 2;
-        buddy->buddy = nullptr; 
-        merge_with_buddy(block); 
-        } else {
+        merge_with_buddy(block);  
+    } else {
         add_to_free_list(block);
     }
 }
-

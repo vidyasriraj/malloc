@@ -2,31 +2,39 @@
 #define ALLOCATOR_H
 
 #include <cstddef>
-#include <unistd.h>
-
+#include <unordered_map>
+#include <mutex>
 // BuddyBlock structure representing a memory block
 struct BuddyBlock {
     size_t size;           // Size of the block
     bool free;             // Whether the block is free or not
-    BuddyBlock* next;      // Pointer to the next block in the list
-    BuddyBlock* prev;      // Pointer to the previous block in the list
     BuddyBlock* buddy;     // Pointer to the buddy block
+
+    BuddyBlock(size_t sz = 0, bool is_free = true)
+        : size(sz), free(is_free), buddy(nullptr) {}
 };
 
 class Allocator {
 public:
     Allocator();
     ~Allocator();
+
+    // Initialize the allocator
     void init();
+
+    // Cleanup all allocated memory
     void cleanup();
-    BuddyBlock* free_list;  
-    
+
+    // Allocate memory of at least 'size' bytes
     void* my_malloc(size_t size);
+
+    // Free previously allocated memory
     void my_free(void* ptr);
 
 private:
-         // Pointer to the head of the free list
-   
+    // Hash map to store free blocks with their address as the key
+    std::unordered_map<size_t, BuddyBlock*> free_list_map;
+
     // Utility function: returns the next power of two greater than or equal to 'size'
     size_t check_power_2(size_t size);
 
@@ -36,7 +44,7 @@ private:
     // Splits a larger block into two smaller blocks until it matches the requested size
     BuddyBlock* split_block(BuddyBlock* block, size_t size);
 
-    // Adds a block to the free list
+    // Adds a block to the free list map
     void add_to_free_list(BuddyBlock* block);
 
     // Attempts to merge a block with its buddy if both are free

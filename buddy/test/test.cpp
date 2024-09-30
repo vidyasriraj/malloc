@@ -12,8 +12,6 @@ protected:
         allocator.cleanup();
         
     }
-
-    
 };
 
 // Test case for large allocation
@@ -53,7 +51,7 @@ TEST_F(AllocatorTest, MemoryFragmentationAndCoalescing) {
 
     // Allocate a block of the same size as the freed middle block
     void* ptr4 = allocator.my_malloc(1113);
-    EXPECT_EQ(ptr2, ptr4);  // Check if the same block was reused
+    EXPECT_EQ(ptr2, ptr4);  
 
     allocator.my_free(ptr1);
     allocator.my_free(ptr3);
@@ -62,11 +60,11 @@ TEST_F(AllocatorTest, MemoryFragmentationAndCoalescing) {
 
 // Test case for alignment of allocations
 TEST_F(AllocatorTest, AllocationAlignment) {
-    void* ptr1 = allocator.my_malloc(13);
-    void* ptr2 = allocator.my_malloc(30);
+    void* ptr1 = allocator.my_malloc(112);
+    void* ptr2 = allocator.my_malloc(25);
     void* ptr3 = allocator.my_malloc(49);
+    
 
-    // Check that all returned addresses are aligned to at least 8 bytes
     EXPECT_EQ((reinterpret_cast<uintptr_t>(ptr1) % 8), 0);
     EXPECT_EQ((reinterpret_cast<uintptr_t>(ptr2) % 8), 0);
     EXPECT_EQ((reinterpret_cast<uintptr_t>(ptr3) % 8), 0);
