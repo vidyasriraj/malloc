@@ -1,9 +1,11 @@
 #include "gtest/gtest.h"
 #include "../src/allocator.h"
+#include <thread>
+Allocator allocator;
 
 class AllocatorTest : public ::testing::Test {
 protected:
-    Allocator allocator;
+    
     virtual void SetUp() {
         allocator.init();
     }
@@ -39,9 +41,10 @@ TEST_F(AllocatorTest, ManySmallAllocations) {
     }
 }
 
+
 // Test case for fragmentation handling and coalescing
 TEST_F(AllocatorTest, MemoryFragmentationAndCoalescing) {
-    // Allocate and free memory in a pattern that creates fragmentation
+    
     void* ptr1 = allocator.my_malloc(60);
     void* ptr2 = allocator.my_malloc(1116);
     void* ptr3 = allocator.my_malloc(74);
@@ -85,6 +88,29 @@ TEST_F(AllocatorTest, MemoryReuse) {
     EXPECT_EQ(ptr1, ptr2);  // Check if the same block was reused
 
     allocator.my_free(ptr2);
+}
+
+void thread_allocations(int iterations, int size, bool flag) {
+    Allocator allocator;
+    allocator.init();
+    for (int i = 0; i < iterations; ++i) {
+        void* ptr = allocator.my_malloc(size);
+        EXPECT_NE(ptr, nullptr);
+        allocator.my_free(ptr);
+    }
+    allocator.cleanup();
+}
+
+TEST_F(AllocatorTest, MultiThreading) {
+    int iterations = 10;
+    int size = 32;
+    std::thread threads[iterations];
+    for (int i = 0; i < iterations; ++i) {
+        threads[i] = std::thread(thread_allocations, iterations, size, true);
+    }
+    for (int i = 0; i < iterations; ++i) {
+        threads[i].join();
+    }   
 }
 
 int main(int argc, char **argv) {

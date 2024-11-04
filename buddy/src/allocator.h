@@ -5,13 +5,13 @@
 #include <unordered_map>
 #include <mutex>
 // BuddyBlock structure representing a memory block
-struct BuddyBlock {
-    size_t size;           // Size of the block
-    bool free;             // Whether the block is free or not
-    BuddyBlock* buddy;     // Pointer to the buddy block
+struct BuddyBlock{
+    size_t size;
+    bool free;
+    int offset; // New field to track left or right position
 
     BuddyBlock(size_t sz = 0, bool is_free = true)
-        : size(sz), free(is_free), buddy(nullptr) {}
+        : size(sz), free(is_free) {}
 };
 
 class Allocator {

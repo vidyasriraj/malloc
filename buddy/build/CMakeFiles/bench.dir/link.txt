@@ -1,0 +1,1 @@
+/usr/bin/g++ CMakeFiles/bench.dir/bench.cpp.o -o bench  liballocator.a 
