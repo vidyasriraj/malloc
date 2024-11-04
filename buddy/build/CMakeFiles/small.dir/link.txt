@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/small.dir/small.cpp.o -o small  liballocator.a 
