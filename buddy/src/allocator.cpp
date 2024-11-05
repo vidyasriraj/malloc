@@ -11,7 +11,6 @@ thread_local std::unordered_map<size_t, BuddyBlock*> free_list_map;
 
 Allocator::Allocator() {
 }
-
 Allocator::~Allocator() {   
 }
 
@@ -62,13 +61,14 @@ BuddyBlock* Allocator::find_free_block(size_t size) {
 BuddyBlock* Allocator::split_block(BuddyBlock* block, size_t size) {
     while (block->size > size) {
         block->size /= 2;
+
         BuddyBlock* buddy = (BuddyBlock*)((char*)block + block->size);
         buddy->size = block->size;
         buddy->free = true;
-        buddy->offset = block->offset ^ 1; // Alternate the offset for buddies
+        buddy->offset = block->offset ^ block->size;  
 
         add_to_free_list(buddy);
-        block->offset = 0;  // Ensure left buddy keeps offset 0
+
     }
     return block;
 }
@@ -111,23 +111,21 @@ void Allocator::my_free(void* ptr) {
     }
 
     block->free = true;
-    add_to_free_list(block);
 
     merge_with_buddy(block);
 }
 
 void Allocator::merge_with_buddy(BuddyBlock* block) {
-    size_t buddy_address = (size_t)block ^ block->size;
-    if (block->offset == 1) {
-        buddy_address -= block->size;  // Adjust for left buddy
-    }
+    size_t buddy_offset = block->offset ^ block->size;
+    BuddyBlock* buddy = (BuddyBlock*)((char*)block + (buddy_offset - block->offset));
 
-    auto it = free_list_map.find(buddy_address);
-    if (it != free_list_map.end()) {
-        BuddyBlock* buddy = it->second;
+    auto it = free_list_map.find((size_t)buddy);
+    if (it != free_list_map.end() && it->second->free && it->second->size == block->size) {
         free_list_map.erase(it);
+        if (buddy < block) {
+            block = buddy;
+        }
         block->size *= 2;
-        block->offset = 0;  // Reset offset on merge
         merge_with_buddy(block);
     } else {
         add_to_free_list(block);

@@ -1,1 +1,1 @@
-/usr/bin/g++ CMakeFiles/random.dir/random.cpp.o -o random  liballocator.a 
+/usr/bin/g++ -O3 -DNDEBUG CMakeFiles/random.dir/random.cpp.o -o random  liballocator.a 

@@ -18,6 +18,9 @@ int main() {
     if(ptr1 == ptr2) {
         std::cout << "true\n"; 
     }
+    void* ptr5 = allocator.my_malloc(256); 
+    allocator.my_free(ptr5);
+
     allocator.my_free(ptr2);
     void* ptr3 = allocator.my_malloc(1024); 
      if(ptr1 == ptr3) {

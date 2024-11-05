@@ -48,11 +48,13 @@ add_executable(small small.cpp)
 add_executable(large large.cpp)
 add_executable(random random.cpp)
 add_executable(bench bench.cpp)
+add_executable(test1 test1.cpp)
 
 target_link_libraries(small PRIVATE allocator  Threads::Threads)
 target_link_libraries(large PRIVATE allocator  Threads::Threads)
 target_link_libraries(random PRIVATE allocator  Threads::Threads)
 target_link_libraries(bench PRIVATE allocator  Threads::Threads)
+target_link_libraries(test1 PRIVATE allocator  Threads::Threads)
 
 # Add test to CTest
 

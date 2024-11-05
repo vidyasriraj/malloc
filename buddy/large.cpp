@@ -25,7 +25,7 @@ int main() {
     }
 
     auto end = clock::now();
-    std::cout << "Time for 2,000 large allocations  "
+    std::cout << "Time for 1,000 large allocations  "
               << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()
               << " ms\n";
 

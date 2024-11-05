@@ -4,6 +4,7 @@
 /home/killi-pt7716/Desktop/malloc/buddy/build/CMakeFiles/large.dir
 /home/killi-pt7716/Desktop/malloc/buddy/build/CMakeFiles/random.dir
 /home/killi-pt7716/Desktop/malloc/buddy/build/CMakeFiles/bench.dir
+/home/killi-pt7716/Desktop/malloc/buddy/build/CMakeFiles/test1.dir
 /home/killi-pt7716/Desktop/malloc/buddy/build/CMakeFiles/test.dir
 /home/killi-pt7716/Desktop/malloc/buddy/build/CMakeFiles/edit_cache.dir
 /home/killi-pt7716/Desktop/malloc/buddy/build/CMakeFiles/rebuild_cache.dir

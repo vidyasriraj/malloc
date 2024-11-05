@@ -8,7 +8,7 @@
 struct BuddyBlock{
     size_t size;
     bool free;
-    int offset; // New field to track left or right position
+    size_t offset; 
 
     BuddyBlock(size_t sz = 0, bool is_free = true)
         : size(sz), free(is_free) {}
