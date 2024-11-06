@@ -24,7 +24,7 @@ int main() {
     }
     auto end = clock::now();
     std::cout << "Time for 2000 random allocations: "
-              << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count()
+              << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()
               << " ms\n";
 
     start = clock::now();
@@ -33,7 +33,7 @@ int main() {
     }
     end = clock::now();
     std::cout << "Time for freeing 2000 random allocations: "
-              << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count()
+              << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()
               << " ms\n";
 
 
@@ -49,7 +49,7 @@ int main() {
     }
      end = clock::now();
     std::cout << "Time for 2000 random allocations:(malloc) "
-              << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count()
+              << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()
               << " ms\n";
 
     start = clock::now();
@@ -58,7 +58,7 @@ int main() {
     }
     end = clock::now();
     std::cout << "Time for freeing 2000 random allocations: "
-              << std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count()
+              << std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()
               << " ms\n";
 
 
