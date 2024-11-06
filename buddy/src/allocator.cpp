@@ -83,7 +83,7 @@ void* Allocator::my_malloc(size_t size) {
         return nullptr; 
     }
     size_t total_size = check_power_2(size + sizeof(BuddyBlock));
-    std::lock_guard<std::mutex> lock(allocator_mutex);
+    // std::lock_guard<std::mutex> lock(allocator_mutex);
     BuddyBlock* block = find_free_block(total_size);
 
     if (!block) {
@@ -102,7 +102,7 @@ void* Allocator::my_malloc(size_t size) {
 }
 
 void Allocator::my_free(void* ptr) {
-    std::lock_guard<std::mutex> lock(allocator_mutex);
+    // std::lock_guard<std::mutex> lock(allocator_mutex);
     if (!ptr) return;
 
     BuddyBlock* block = (BuddyBlock*)((char*)ptr - sizeof(BuddyBlock));

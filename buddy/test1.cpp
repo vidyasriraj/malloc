@@ -48,7 +48,9 @@ int main() {
 
     const int num_threads = 4;        
     const int iterations= 2500; 
-    const size_t allocation_size = 32;
+    std::default_random_engine size;
+    std::uniform_int_distribution<size_t> size_distribution(1, 1024); // Random sizes between 1 and 1024 bytes
+    const size_t allocation_size = size_distribution(size);
     // Measure time for custom allocator
     auto start = clock::now();
     std::vector<std::thread> threads;
